@@ -1,2 +1,12 @@
-# Lab2Distribuidos1_2019
-Laboratorio n° 2 Sistemas Distribuidos 1-2019
+# Laboratorio N°2 Sistemas Distribuídos
+## Integrantes:
+- Mario Caceres
+- Dragomir Sekul
+
+## Descripción del problema:
+
+## Enfoque de solución:
+
+## Desarrollo de la actividad:
+
+## Resultados:
