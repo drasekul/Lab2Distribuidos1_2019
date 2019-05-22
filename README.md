@@ -19,7 +19,7 @@ Para crear las maquians virtuales, se realizan los siguitnes pasos:
 2.  Hacer click en "Ubuntu Server 18.04 LTS"
 ![image alt](https://i.imgur.com/yWJTsfm.png=WidthxHeight)
 Esto llevará a los datos básicos necesarios para crear una máquina virtual, se les debe ingresar el tipo de suscripción a utilizar y el "grupo de recursos", este último corresponde a una coleccion de recursos que comparten los mismos permisos, ciclo de vida y directivas y si no existe uno creado se puede crear uno nuevo ene l momento. Otros de los datos necesarios son el nombre de la MV, la región en donde se desea almacenar (en este caso se almacenarán en Brasil), el tamaño de la MV y los daos para la cuenta de administrador, mietras que el resto de las opciones se mantienen por defecto. Este proceso se repite segun la cantidad de maquinas viertuales a utilizar, teniendo en cuenta que para una mejor interacción entre las máquinas se utiliza los mismos datos de administrador (usuario y contraseña).
-![image alt](https://i.imgur.com/Qfet6ZJ.png=WidthxHeight)
+![image alt](https://i.imgur.com/Zk77dVP.png=WidthxHeight)
 Al momento de crear las MV's nos dimos cuneta de otra barrera, la cual consistia en que la suscripción que se utilizaba para crear estos recursos solo nos permitía utilizar un total de 4 vcpu, por lo que al momento de crear estos recursos, uno de ellos, considerado como Master para la implementación de Spark, tiene 2 vcpu mientras que los otros dos, considerados para ser Slaves, tendrán 1 vcpu.
 
 ### Conexión con Maquinas Virtuales
@@ -28,11 +28,13 @@ Finalmente para conectarse con las VM se tienen las siguientes direcciones, en d
     ssh SDlab2@sparkmaster.brazilsouth.cloudapp.azure.com
 ```
 La contraseña para conectarse a todas las máquinas es 'distribuidos1_2019'.
+
 | Nombre  | Dirección                                         |
 |---------|---------------------------------------------------|
 | Master  | SDlab2@sparkmaster.brazilsouth.cloudapp.azure.com |
 | Slave 1 | SDlab2@191.232.199.190                            |
 | Slave 2 | SDlab2@191.232.215.192                            |
+
 ### Instalación de Herramientas
 #### Python y R
 Para la instalación de los lenguajes Python y R, se utiliza una conexión mediante ssh para poder ingresar a cada MV y realizar los siguientes comandos:
@@ -105,10 +107,10 @@ Con esto se pueden crear Notebooks de R.
 Para crear la base de datos con Table Storage se utilizará el servicio de Azure Cosmos DB, un motor de base de datos NoSQL. Para crear esta base de datos desde el portal de Azure se debe dirigir a **Crear un Recurso** -> **Base de Datos** -> **Azure Cosmos DB**.
 ![image alt](https://i.imgur.com/pfkKjXx.png=WidthxHeight)
 Luego se debe entregar los datos necesarios como la suscripción a utilizar y el grupo de recursos en dodne se utilizará la base de datos, además del nombre u la ubicación de esta. Para que la base de datos trabaje como Table Storage se debe elegir la opcion de **Tabla de Azure** en la opción de API, mientras que el resto de las opciones se dejan por defecto
-![image alt](https://i.imgur.com/Lgq77wM.png=WidthxHeight)
+![image alt](https://i.imgur.com/K3uauIn.png=WidthxHeight)
 
 Ya teniendo la base de datos creada se puede ir a este recurso para agregar los datos, para eso dentro de este esta la opcion **Agregar Tabla** en donde abrirá el explorador de datos con el que podemos crear tanto tablas e identidades.
-![image alt](https://i.imgur.com/1pFBEZi.png=WidthxHeight)
+![image alt](https://i.imgur.com/uphv2Ya.png=WidthxHeight)
 
 Para conectar la base de datos a spark encontramos una barrera de que hay falta de documentacion respecto a conectar Spark a este tipo de base de datos, debido a la documentación se centra en el uso de spark con otra herramienta de Azure llamada HDInsight, por lo que no se ha podido realizar la conexión a la base de datos.
 
@@ -124,7 +126,9 @@ Luego en la VM Master se debe ejecutar el siguiente comando para iniciar el serv
  jupyter notebook
 ```
 Para el caso de Jupyter, y luego de configurados los kernels en el paso anterior estos son visibles y pueden ser creados como nuevos notebooks,como se muestra en la siguiente figura. 
+
 ![image alt](https://i.imgur.com/j0C5mkV.png=WidthxHeight)
+
 Para probar R, se crea un notebook y se realizan operaciones simples, como de suma y operaciones con  vectores.
 ![image alt](https://i.imgur.com/4UrGRhD.png=WidthxHeight)
 Luego para probar Python se realiza lo mismo, pero esta vez se crea una función para determinar el factorial de un numero.
